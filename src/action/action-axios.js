@@ -1,8 +1,7 @@
 import axios from "axios";
 import ACTION_TYPES from './actionTypes';
 
-export const actionCreator = (name) => async (dispatch) => {
-    dispatch(fetchStarted());
+export const getCountries = (name) => async (dispatch) => {
     await axios
     .get("https://restcountries.eu/rest/v2/region/"+ name)
     .then((res)=> {
@@ -15,23 +14,14 @@ export const actionCreator = (name) => async (dispatch) => {
       });
    };
 
-   const fetchStarted = () => {  
-    return{       
-    type: ACTION_TYPES.FETCH_STARTED,                  
-    payload: {
-        //event
-        isLoading:true,
-    },
-};
-};
-
-const fetchSuccess = (result) => {   
+   const fetchSuccess = (result) => {   
     return{                            
     type: ACTION_TYPES.FETCH_SUCCESS,
     payload: result,
 };  
   };
-const fetchFail = (error) => {
+
+  const fetchFail = (error) => {
     return {
     type: ACTION_TYPES.FETCH_FAIL,
     payload: error,
