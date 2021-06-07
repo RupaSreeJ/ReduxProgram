@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import rindex from './rindex';
+import countriesReducer from './countriesReducer';
 export default combineReducers({
-    event: rindex
+    event: countriesReducer
 })
