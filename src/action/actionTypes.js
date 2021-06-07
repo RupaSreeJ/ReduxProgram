@@ -4,6 +4,4 @@ const ACTION_TYPES = {
     FETCH_FAIL: 'FETCH_FAIL',
   };
   export default ACTION_TYPES;
-  /* API_STARTED: 'API_STARTED',
-    API_SUCCESS: 'API_SUCCESS',
-    API_ERROR: 'API_ERROR', */
+  
