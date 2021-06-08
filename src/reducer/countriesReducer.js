@@ -3,7 +3,7 @@ import ACTION_TYPES from '../action/actionTypes'
   result: [],                                                       
   error: null,
 };
-const mainReducer = (state = initialState, {payload, type}) => {        
+const countriesReducer = (state = initialState, {payload, type}) => {        
   switch (type) {                                       
     case ACTION_TYPES.FETCH_STARTED: 
       return {
@@ -28,7 +28,7 @@ const mainReducer = (state = initialState, {payload, type}) => {
   }
 };
 
-export default mainReducer;
+export default countriesReducer;
 
 
 
