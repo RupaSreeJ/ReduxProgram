@@ -15,10 +15,6 @@ import Data from '../mock/MockData'
 
     componentDidMount() {
         this.setCountries(this.props.countries[0]);
-        this.setState({
-            dropdown1: this.props.countries,
-            dropdown2: this.props.result
-        });
     }
     static getDerivedStateFromProps(nextProps,prevProps) {   
         if (prevProps.result !== nextProps.result) {
@@ -47,7 +43,7 @@ import Data from '../mock/MockData'
             <div>
                 <select value={this.state.select} onChange={this.handleOnChange.bind(this)}>
                     {
-                        this.state.dropdown1.map(x => {
+                        this.props.countries.map(x => {
                             return <option key={x}>{x}</option>
                         })
                     }
@@ -55,7 +51,7 @@ import Data from '../mock/MockData'
                 <div>
                     <select >                           
                         {
-                            this.state.dropdown2.map(x => {
+                            this.props.result.map(x => {
                                 return <option>{x.name}</option>
                             })
                         }
