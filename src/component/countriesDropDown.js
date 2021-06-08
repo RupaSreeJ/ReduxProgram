@@ -20,12 +20,12 @@ import Data from '../mock/MockData'
             dropdown2: this.props.result
         });
     }
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        if (this.state.result !== nextProps.result) {
-            this.setState({
+    static getDerivedStateFromProps(nextProps,prevProps) {   
+        if (prevProps.result !== nextProps.result) {
+            return{
                 dropdown2: nextProps.result,
                 select: nextProps.name
-            });
+            };
         }
     }
     setCountries(name) {
