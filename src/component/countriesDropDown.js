@@ -65,9 +65,9 @@ import Data from '../mock/MockData'
 DropDown.defaultProps = Data;
 const mapStateToProps = (state) => {
     return {
-        result: state.event.result,
-        loading: state.event.loading,
-        error: state.event.error,
+        result: state.countriesReducer.result,
+        loading: state.countriesReducer.loading,
+        error: state.countriesReducer.error,
     };
 };
 
