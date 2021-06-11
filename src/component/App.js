@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Data from '../mock/MockData'
 import './styles.css'
-import CountriesRegionComponent from './countriesDropDown'
+import CountriesRegionComponent from './CountriesRegionComponent'
 class App extends Component {
   render() {
     return (                                        
