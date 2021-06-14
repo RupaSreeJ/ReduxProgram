@@ -33,16 +33,12 @@ class CountriesRegionComponent extends Component {
             }); 
         }
     }
-
-    handleOnChange(e) {
-        e.preventDefault();
-        this.setCountries(e.target.value);
-    }
-
-    render() {
+render() {
         return (
             <div>
-                <CommonSelect onChange={this.handleOnChange.bind(this)} dropDownList={this.props.Content.countries} id='regionDropDown'/>
+                <CommonSelect 
+                onChange={(name)=>this.setCountries(name)} 
+                dropDownList={this.props.Content.countries} id='regionDropDown'/>
                 <br/>
                 <CommonSelect dropDownList={this.props.result} id='countryDropDown'/>
             </div>
