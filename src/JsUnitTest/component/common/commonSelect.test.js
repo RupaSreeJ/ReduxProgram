@@ -1,8 +1,5 @@
 import { shallow } from "enzyme";
-
 import CommonSelect from '../../../component/common/commonSelect';
-
-
 describe('<commonSelect/>', () => {
   let props = {
     dropDownList:[{id: "countryDropDown"}],
@@ -27,25 +24,17 @@ describe('<commonSelect/>', () => {
           name: "Europe"
         }]
     },
-    value :fn => fn
+    onChange :fn => fn,
+    handleOnChange: fn => fn,
   }
   it('renders three <commonSelect/> components', () => {
     const wrapper = shallow(<CommonSelect {...props} />);
-    expect(wrapper).toBeDefined();
+    expect(wrapper.contains(<CommonSelect/>)).toEqual(false);
 });
 it('should call handleOnChange method', () =>
 {
-    const value = {
-        preventDefault: fn => fn
-    }
     const wrapper = shallow(<CommonSelect {...props}/>);
-    wrapper.instance().handleOnChange(value);
-   expect(wrapper.props('handleOnChange')).toEqual('value');
+    expect(wrapper.find(`select`).simulate('change', {preventDefault: fn => fn,target: {name: "Africa"}}));
+   expect(wrapper.props('handleOnChange')).toEqual('Africa');
 }); 
-// it('renders inputfield for handleonchange', () => {
-    
-//   const wrapper = shallow(<CommonSelect {...props}/> );
-//   expect(wrapper.find(`[id="some text"]`).at(0).simulate('change', {target: {value: "Hello Added"}}));
-  
-// });
 });
