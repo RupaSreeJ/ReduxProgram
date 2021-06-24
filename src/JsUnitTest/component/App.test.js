@@ -1,8 +1,5 @@
 import { shallow } from "enzyme";
-//import Adapter from 'enzyme-adapter-react-16';
 import App from '../../component/App';
-//Enzyme.configure({adapter: new Adapter()});
-
 describe('<App/>', () => {
   let props = {
     Data:
@@ -29,14 +26,9 @@ describe('<App/>', () => {
   }
   it('renders three <CountriesRegionComponent/> components', () => {
     const wrapper = shallow(<App {...props} />);
-    expect(wrapper).toBeDefined();
+    //expect(wrapper).toMatchSnapshot();
+    expect(wrapper.contains(<App/>)).toEqual(false);
 
   });
 
-
-  // it('renders an `.create-new`', () => {
-  //     const wrapper = shallow(<CountriesRegionComponent {...props}/>);
-  //     expect(wrapper.find('.create-new')).to.have.lengthOf(1);
-
-  // });
 });
